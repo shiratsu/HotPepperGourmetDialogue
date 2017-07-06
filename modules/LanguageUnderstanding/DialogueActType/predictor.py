@@ -30,8 +30,14 @@ def sent2features_(sent):
     from training_data_generator.scripts.analyzer import analyze_morph
     dic_path = os.path.join(os.path.dirname(__file__), 'dic.txt')
     surfaces, _ = analyze_morph(sent)
+    print("------------surfaces---------------")
+    print(surfaces)
     dictionary = corpora.Dictionary.load_from_text(dic_path)
+    print("------------dictionary---------------")
+    print(dictionary)
     features = to_features(dictionary, surfaces)
+    # print("------------features---------------")
+    # print(features)
 
     return features
 
@@ -85,5 +91,3 @@ if __name__ == '__main__':
     predictor = DialogueActTypePredictor()
     predictor.train(train_x, train_y)
     predictor.evaluate(test_x, test_y)
-
-

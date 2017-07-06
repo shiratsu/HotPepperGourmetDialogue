@@ -118,6 +118,10 @@ def word2features_(word):
 
 
 def sent2features_(sent):
+    for word in sent:
+        print("----------------------------")
+        print(word)
+
     return [word2features_(word) for word in sent]
 
 
@@ -146,6 +150,10 @@ def create_bow(dictionary, words):
 
 def to_features(dictionary, words):
     tmp = dictionary.doc2bow(words)
+    print("---------------words-----------------")
+    print(words)
+    print("---------------doc2bow-----------------")
+    print(tmp)
     dense = list(matutils.corpus2dense([tmp], num_terms=len(dictionary)).T[0])
 
     return dense

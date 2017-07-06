@@ -13,6 +13,7 @@ class LanguageUnderstanding(object):
 
     def execute(self, sent):
         features = sent2features_(sent)
+        # print(features)
         act_type = self.__predictor.predict([features])
 
         surfaces, features = analyze_morph(sent)
