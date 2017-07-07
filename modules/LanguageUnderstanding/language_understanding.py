@@ -28,10 +28,21 @@ class LanguageUnderstanding(object):
 
         morphed_sent = [[surfaces[i]] + features[i].split(',') for i in range(len(surfaces))]
         features = sent2features(morphed_sent)
+
+        print("----------morphed_sent,features--------------")
+        print(morphed_sent)
+        print(features)
+
         named_entity = self.__extractor.extract(features, morphed_sent)
+
+        print("----------named_entity--------------")
+        print(named_entity)
 
         dialogue_act = {'user_act_type': act_type}
         dialogue_act.update(dict(named_entity))
+
+        print("----------dialogue_act--------------")
+        print(dialogue_act)
 
         return dialogue_act
 

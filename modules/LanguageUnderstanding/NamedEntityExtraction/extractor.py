@@ -35,7 +35,15 @@ class NamedEntityExtractor(object):
         千葉でラーメンを食べる
         -> [['LOC', '千葉'], ['GENRE', 'ラーメン']]
         """
+        print("-------------sent----------------")
+        print(sent)
+        print("-------------xseq----------------")
+        print(xseq)
+
         pred_y = self.__tagger.tag(xseq)
+        print("-------------pred_y----------------")
+        print(pred_y)
+
         res = []
         i = 0
         while i < len(pred_y):
