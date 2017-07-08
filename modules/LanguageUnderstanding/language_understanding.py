@@ -13,8 +13,8 @@ class LanguageUnderstanding(object):
 
     def execute(self, sent):
         features = sent2features_(sent)
-        print("----------features--------------")
-        # print(features)
+        print("----------features_features--------------")
+        print(features)
         act_type = self.__predictor.predict([features])
         print("----------act_type--------------")
         print(act_type)

@@ -9,7 +9,8 @@ from training_data_generator.scripts.matching import matching
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 WORDS_DIR = os.path.join(BASE_DIR, 'words')
-SAVE_DIR = os.path.join(os.path.dirname(BASE_DIR), 'training_data')
+# SAVE_DIR = os.path.join(os.path.dirname(BASE_DIR), 'training_data')
+SAVE_DIR = os.path.join(os.path.dirname(BASE_DIR), 'training_data_tmp')
 
 
 
@@ -34,7 +35,7 @@ for file_name, template_str in zip(file_list, template_strs):
             labeled_sent = matching(sent, [[word, template_str]])
 
             training_data.append(labeled_sent)
-
+    print(training_data)
     # 保存
     save_path = os.path.join(SAVE_DIR, template_str.lower() + '.pkl')
     with open(save_path, 'wb') as f:

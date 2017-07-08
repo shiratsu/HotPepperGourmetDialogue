@@ -36,8 +36,8 @@ def sent2features_(sent):
     print("------------dictionary---------------")
     print(dictionary)
     features = to_features(dictionary, surfaces)
-    # print("------------features---------------")
-    # print(features)
+    print("-----------sent2features_-features---------------")
+    print(features)
 
     return features
 
@@ -49,6 +49,8 @@ if __name__ == '__main__':
     f = lambda path: os.path.dirname(path)
 
     root_dir = f(f(f(f(__file__))))
+    root_dir = "/Users/shunsukehiratsuka/HotPepperGourmetDialogue"
+    print(root_dir)
     training_data_dir = os.path.join(root_dir, 'training_data')
     sents = []
     labels = []
@@ -73,6 +75,11 @@ if __name__ == '__main__':
     train_sents = sents[:train_num]
     test_sents = sents[train_num:]
 
+    print("-------train_sents-----------")
+    print(train_sents[:10])
+    print("-------labels-----------")
+    print(labels[:10])
+
     words = get_words(sents)
 
     dic_name = 'dic.txt'
@@ -84,6 +91,8 @@ if __name__ == '__main__':
 
     train_x = [to_features(dictionary, words) for words in get_words(train_sents)]
     train_y = labels[:train_num]
+
+
 
     test_x = [to_features(dictionary, words) for words in get_words(test_sents)]
     test_y = labels[train_num:]
