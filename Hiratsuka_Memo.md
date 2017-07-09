@@ -16,6 +16,17 @@ to_featuresでベクトルに変換
 RandomForestClassifierを使って、act_typeを推定している
 上記モデルがどうやって作られたか
 
+## その後
+act_typeがわかったのち、例えば、ジャンルがわかったのち、
+そのact_typeに沿ったどのキーワードが検索対象になるか、抜き出す。
+
+dialogue_actにセット
+
+## 会話の推定
+セットしたものを、DialogueStateの状態情報に使う。
+
+
+
 ## モデルの元データ
 training_data_dirにある
 DialogueActTypePredictorで使ってるモデルもあらかじめ訓練されたもの
