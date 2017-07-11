@@ -8,16 +8,24 @@ training_dataディレクトリに入っている
 
 # 流れ
 language_understandingが呼ばれて、そこから
+
 predictorのsent2features_
+
 で形態素解析
+
 surfaces_でmecab使ってうまいことして
+
 bowの辞書を初期化
+
 to_featuresでベクトルに変換
+
 RandomForestClassifierを使って、act_typeを推定している
+
 上記モデルがどうやって作られたか
 
 ## その後
-act_typeがわかったのち、例えば、ジャンルがわかったのち、
+act_typeがわかったのち、例えば、act_type=ジャンルがわかったのち、
+
 そのact_typeに沿ったどのキーワードが検索対象になるか、抜き出す。
 
 dialogue_actにセット
@@ -29,14 +37,18 @@ dialogue_actにセット
 
 ## モデルの元データ
 training_data_dirにある
+
 DialogueActTypePredictorで使ってるモデルもあらかじめ訓練されたもの
+
 それをどうやって作っているか。
 
 ### 分類用のモデルの作成
 DialogueActType/predictor.pyで作っている。
 dic.txtをベース
+
 training_dataディレクトリに、３タイプのモデル
 genre,location,maximum_amount,otherがある
+
 例えば、genreは、食べ物関連が保存されている
 これが、文章から検出されたら、genreですと分類するモデルを作る。
 
@@ -48,15 +60,20 @@ genre,location,maximum_amount,otherがある
 
 ### ジャンルデータや、位置情報データのモデル作成
 ontologyのgenre.yamlがベース
+
 genre_maker.pyで、genre.txtを作っている
+
 そこから、
+
 training_data_factory.pyで、genreや位置、お金のモデルを作っている
 例えば、
 
 words/genre.txtにワードが
 templates/genre.txtにテンプレートがあり
+
 その２つを組み合わせて、例えば、
 「ラーメンが食べたい」という文章を作成して、
 形態素解析で、分析
+
 さらに、IOB2でタグ付け。
 それを、モデルとして、保存する。
