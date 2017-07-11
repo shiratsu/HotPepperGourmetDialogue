@@ -14,6 +14,8 @@ class DialogueManager(object):
     def select_action(self, dialogue_act):
         from copy import deepcopy
         sys_act = deepcopy(dialogue_act)
+        print("----------self.dialogue_state-----------------")
+        print(self.dialogue_state)
         if not self.dialogue_state.has('LOCATION'):
             sys_act['sys_act_type'] = 'REQUEST_LOCATION'
         elif not self.dialogue_state.has('GENRE'):

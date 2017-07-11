@@ -21,10 +21,16 @@ if __name__ == '__main__':
         # ここが言語理解部
         dialogue_act = language_understanding.execute(sent)
 
+        print("---------dialogue_act--------------")
+        print(dialogue_act)
+
         # Update Dialogue state
         # ここが内部状態の更新
         manager.update_dialogue_state(dialogue_act)
         sys_act_type = manager.select_action(dialogue_act)
+
+        print("---------sys_act_type--------------")
+        print(sys_act_type)
 
         # Generate Sentence
         # 行動選択して、プリント

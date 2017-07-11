@@ -20,6 +20,9 @@ class DialogueActTypePredictor(object):
         joblib.dump(self.estimator, file_name)
 
     def predict(self, X):
+        print("------------DialogueActTypePredictor/predict-----------")
+        print(X)
+        print(X[0])
         return self.estimator.predict(X)[0]
 
     def evaluate(self, test_x, test_y):

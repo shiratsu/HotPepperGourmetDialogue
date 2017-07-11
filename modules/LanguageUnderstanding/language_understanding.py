@@ -13,36 +13,36 @@ class LanguageUnderstanding(object):
 
     def execute(self, sent):
         features = sent2features_(sent)
-        print("----------features_features--------------")
-        print(features)
+        # print("----------features_features--------------")
+        # print(features)
         act_type = self.__predictor.predict([features])
-        print("----------act_type--------------")
-        print(act_type)
+        # print("----------act_type--------------")
+        # print(act_type)
 
 
         surfaces, features = analyze_morph(sent)
 
-        print("----------surfaces,features--------------")
-        print(features)
-        print(surfaces)
+        # print("----------surfaces,features--------------")
+        # print(features)
+        # print(surfaces)
 
         morphed_sent = [[surfaces[i]] + features[i].split(',') for i in range(len(surfaces))]
         features = sent2features(morphed_sent)
 
-        print("----------morphed_sent,features--------------")
-        print(morphed_sent)
-        print(features)
+        # print("----------morphed_sent,features--------------")
+        # print(morphed_sent)
+        # print(features)
 
         named_entity = self.__extractor.extract(features, morphed_sent)
 
-        print("----------named_entity--------------")
-        print(named_entity)
+        # print("----------named_entity--------------")
+        # print(named_entity)
 
         dialogue_act = {'user_act_type': act_type}
         dialogue_act.update(dict(named_entity))
-
-        print("----------dialogue_act--------------")
-        print(dialogue_act)
+        #
+        # print("----------dialogue_act--------------")
+        # print(dialogue_act)
 
         return dialogue_act
 

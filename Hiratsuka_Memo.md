@@ -21,6 +21,11 @@ to_featuresでベクトルに変換
 
 RandomForestClassifierを使って、act_typeを推定している
 
+```
+---------sys_act_type--------------
+{'user_act_type': 'other', 'GENRE': '和食', 'sys_act_type': 'REQUEST_LOCATION'}
+```
+
 上記モデルがどうやって作られたか
 
 ## その後
