@@ -18,12 +18,15 @@ if __name__ == '__main__':
             break
 
         # Language Understanding
+        # ここが言語理解部
         dialogue_act = language_understanding.execute(sent)
 
         # Update Dialogue state
+        # ここが内部状態の更新
         manager.update_dialogue_state(dialogue_act)
         sys_act_type = manager.select_action(dialogue_act)
 
         # Generate Sentence
+        # 行動選択して、プリント
         sent = generator.generate_sentence(sys_act_type)
         print(sent)
