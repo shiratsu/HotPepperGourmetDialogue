@@ -23,6 +23,9 @@ class DialogueState(object):
     def get_budget(self):
         return self.__state['MAXIMUM_AMOUNT']
 
+    def get_data_by_key(self,str_key):
+        return self.__state[str_key]
+
     def __str__(self):
         import pprint
         return pprint.pformat(self.__state)
